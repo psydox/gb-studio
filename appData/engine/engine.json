@@ -375,7 +375,8 @@
     },
     {
       "key": "plat_run_boost",
-      "label": "Jump Boost from Run Speed",
+      "label": "FIELD_JUMP_MOVEMENT_BOOST",
+      "description": "FIELD_JUMP_MOVEMENT_BOOST_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
@@ -383,6 +384,7 @@
       "min": 0,
       "max": 255,
       "indent": 1,
+      "editUnits": "subpx",
       "conditions": [
         {
           "key": "FEAT_PLATFORM_JUMP",
@@ -414,11 +416,12 @@
     },
     {
       "key": "plat_extra_jumps",
-      "label": "Extra Jumps (set to 255 for infinite)",
+      "label": "FIELD_ADDITIONAL_JUMPS",
+      "description": "FIELD_ADDITIONAL_JUMPS_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 1,
       "min": 0,
       "max": 255,
       "indent": 2,
@@ -435,13 +438,15 @@
     },
     {
       "key": "plat_jump_reduction",
-      "label": "Height Reduction on Subsequent Jumps",
+      "label": "FIELD_JUMP_VELOCITY_REDUCTION",
+      "description": "FIELD_JUMP_VELOCITY_REDUCTION_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "WORD",
       "defaultValue": 0,
       "min": 0,
       "max": 8192,
+      "editUnits": "subpxVelPrecise",
       "indent": 2,
       "conditions": [
         {
@@ -474,11 +479,12 @@
     },
     {
       "key": "plat_coyote_max",
-      "label": "Coyote Time",
+      "label": "FIELD_COYOTE_TIME_FRAMES",
+      "description": "FIELD_COYOTE_TIME_FRAMES_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 2,
       "min": 0,
       "max": 10,
       "indent": 2,
@@ -734,7 +740,7 @@
         [3, "Down and Jump"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 2,
       "indent": 1,
       "conditions": [
         {
@@ -898,7 +904,7 @@
         [8, "Collision Group 3"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 4,
       "indent": 1,
       "conditions": [
         {
@@ -920,7 +926,7 @@
         [8, "Collision Group 3"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 8,
       "indent": 1,
       "conditions": [
         {
@@ -964,7 +970,7 @@
         [3, "Both"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 3,
       "indent": 1,
       "conditions": [
         {
