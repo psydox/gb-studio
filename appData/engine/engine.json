@@ -183,17 +183,16 @@
       ]
     },
     {
-      "key": "plat_run_type",
+      "key": "PLATFORM_RUN_STYLE",
       "label": "Run Style",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "No Running"],
-        [1, "GBS Default (Smooth Acceleration)"],
-        [2, "Enhanced Smooth Acceleration"],
-        [3, "Immediate Run Speed"]
+        ["RUN_STYLE_DEFAULT", "GBS Default (Smooth Acceleration)"],
+        ["RUN_STYLE_SMOOTH", "Enhanced Smooth Acceleration"],
+        ["RUN_STYLE_INSTANT", "Immediate Run Speed"]
       ],
-      "cType": "UBYTE",
+      "cType": "define",
       "defaultValue": 1,
       "indent": 1,
       "conditions": [
@@ -240,6 +239,10 @@
         {
           "key": "FEAT_PLATFORM_RUN",
           "truthy": true
+        },
+        {
+          "key": "PLATFORM_RUN_STYLE",
+          "ne": "RUN_STYLE_INSTANT"
         }
       ]
     },
