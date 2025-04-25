@@ -1084,6 +1084,12 @@
   "FIELD_WALL_SLIDE_GRAVITY_DESC": "Gravity applied while clinging to walls.",
   "FIELD_WALL_JUMP_VELOCITY": "Wall Jump Velocity",
   "FIELD_WALL_JUMP_VELOCITY_DESC": "The vertical velocity applied when jumping from a wall.",
+  "FIELD_DROP_THROUGH_INPUT": "Drop Through Input",
+  "FIELD_DROP_THROUGH_INPUT_DESC": "The buttons that need to be tapped or held to drop through a platform.",
+  "FIELD_DROP_THROUGH_INPUT_DOWN_HOLD": "Down (Hold)",
+  "FIELD_DROP_THROUGH_INPUT_DOWN_TAP": "Down (Tap)",
+  "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_HOLD": "Down + Jump (Hold)",
+  "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_TAP": "Down + Jump (Tap)",
 
   "// 7": "Asset Viewer ---------------------------------------------",
   "ASSET_SEARCH": "Search...",

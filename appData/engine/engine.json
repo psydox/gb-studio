@@ -644,18 +644,19 @@
     {
       "key": "plat_drop_through",
       "sceneType": "PLATFORM",
-      "label": "Drop Through Platforms",
+      "label": "FIELD_DROP_THROUGH_INPUT",
+      "description": "FIELD_DROP_THROUGH_INPUT_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "Off"],
-        [1, "Down (Hold)"],
-        [2, "Down (Tap)"],
-        [3, "Down and Jump (Hold)"],
-        [4, "Down and Jump (Tap)"]
+        [1, "FIELD_DROP_THROUGH_INPUT_DOWN_HOLD"],
+        [2, "FIELD_DROP_THROUGH_INPUT_DOWN_TAP"],
+        [3, "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_HOLD"],
+        [4, "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_TAP"],
+        [0, "FIELD_NONE"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 4,
       "indent": 2,
       "conditions": [
         {
