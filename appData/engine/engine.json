@@ -523,11 +523,12 @@
     },
     {
       "key": "plat_wall_jump_max",
-      "label": "Wall Jumps",
+      "label": "FIELD_NUMBER_OF_WALL_JUMPS",
+      "description": "FIELD_NUMBER_OF_WALL_JUMPS_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 1,
       "min": 0,
       "max": 255,
       "indent": 2,
@@ -543,14 +544,33 @@
       ]
     },
     {
-      "key": "plat_wall_slide",
-      "label": "Enable Wall Slide",
+      "key": "plat_wall_kick",
+      "label": "FIELD_WALL_JUMP_VELOCITY",
+      "description": "FIELD_WALL_JUMP_VELOCITY_DESC",
       "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
-      "options": [
-        [0, "Off"],
-        [1, "On"]
-      ],
+      "type": "slider",
+      "cType": "WORD",
+      "defaultValue": 600,
+      "min": 0,
+      "max": 8192,
+      "editUnits": "subpxVelPrecise",
+      "indent": 2,
+      "conditions": [
+        {
+          "key": "FEAT_PLATFORM_JUMP",
+          "truthy": true
+        },
+        {
+          "key": "FEAT_PLATFORM_WALL_JUMP",
+          "truthy": true
+        }
+      ]
+    },
+    {
+      "key": "plat_wall_slide",
+      "label": "FIELD_ENABLE_WALL_SLIDE",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
       "cType": "UBYTE",
       "defaultValue": 0,
       "indent": 2,
@@ -567,7 +587,8 @@
     },
     {
       "key": "plat_wall_grav",
-      "label": "Wall Slide Gravity",
+      "label": "FIELD_WALL_SLIDE_GRAVITY",
+      "description": "FIELD_WALL_SLIDE_GRAVITY_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "WORD",
@@ -584,27 +605,9 @@
         {
           "key": "FEAT_PLATFORM_WALL_JUMP",
           "truthy": true
-        }
-      ]
-    },
-    {
-      "key": "plat_wall_kick",
-      "label": "Wall Kick Off",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "slider",
-      "cType": "WORD",
-      "defaultValue": 600,
-      "min": 0,
-      "max": 8192,
-      "editUnits": "subpxVelPrecise",
-      "indent": 2,
-      "conditions": [
-        {
-          "key": "FEAT_PLATFORM_JUMP",
-          "truthy": true
         },
         {
-          "key": "FEAT_PLATFORM_WALL_JUMP",
+          "key": "plat_wall_slide",
           "truthy": true
         }
       ]
