@@ -1073,6 +1073,9 @@
   "FIELD_JUMP_VELOCITY_REDUCTION_DESC": "Reduces the jump height for each additional jump after the first.",
   "FIELD_COYOTE_TIME_FRAMES": "Coyote Time Frames",
   "FIELD_COYOTE_TIME_FRAMES_DESC": "The number of frames that jumping is still allowed after walking off a platform. Helps jumps register more easily if pressed slightly late.",
+  "FIELD_RUN_STYLE": "Run Style",
+  "FIELD_RUN_STYLE_DESC": "How the player reaches their 'Run Velocity' when the 'Run' button is held.\n\nDefault: When holding the 'Run' button the 'Run Acceleration' value will be used.\n\nSmooth: When holding the 'Run' button the 'Walk Acceleration' value will be used until the player reaches their 'Walk Velocity' then the 'Run Acceleration' value will be used. Creates a stronger sense of momentum when running from rest.\n\nInstant: No acceleration is used for running. When holding the 'Run' button the player will always move at 'Run Velocity'.",
+  "FIELD_RUN_STYLE_SMOOTH": "Smooth",
 
   "// 7": "Asset Viewer ---------------------------------------------",
   "ASSET_SEARCH": "Search...",
