@@ -649,11 +649,11 @@
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [1, "FIELD_DROP_THROUGH_INPUT_DOWN_HOLD"],
-        [2, "FIELD_DROP_THROUGH_INPUT_DOWN_TAP"],
-        [3, "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_HOLD"],
-        [4, "FIELD_DROP_THROUGH_INPUT_DOWN_JUMP_TAP"],
-        [0, "FIELD_NONE"]
+        [0, "FIELD_NONE"],
+        [1, "FIELD_DOWN_HOLD"],
+        [2, "FIELD_DOWN_TAP"],
+        [3, "FIELD_DOWN_AND_JUMP_HOLD"],
+        [4, "FIELD_DOWN_AND_JUMP_TAP"]
       ],
       "cType": "UBYTE",
       "defaultValue": 4,
@@ -679,16 +679,17 @@
     {
       "key": "plat_float_input",
       "sceneType": "PLATFORM",
-      "label": "Float Input",
+      "label": "FIELD_FLOAT_INPUT",
+      "description": "FIELD_FLOAT_INPUT_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "None"],
-        [1, "Hold Jump"],
-        [2, "Hold Up"]
+        [0, "FIELD_NONE"],
+        [1, "FIELD_JUMP_HOLD"],
+        [2, "FIELD_UP_HOLD"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 1,
       "indent": 1,
       "conditions": [
         {
@@ -700,7 +701,8 @@
     {
       "key": "plat_float_grav",
       "sceneType": "PLATFORM",
-      "label": "Float Fall Speed",
+      "label": "FIELD_FLOAT_VEL",
+      "description": "FIELD_FLOAT_VEL_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "WORD",
