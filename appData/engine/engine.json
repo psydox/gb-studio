@@ -569,6 +569,7 @@
     {
       "key": "plat_wall_slide",
       "label": "FIELD_ENABLE_WALL_SLIDE",
+      "description": "FIELD_ENABLE_WALL_SLIDE_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "checkbox",
       "cType": "UBYTE",
