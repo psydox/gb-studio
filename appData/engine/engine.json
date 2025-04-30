@@ -830,14 +830,14 @@
     {
       "key": "plat_dash_through",
       "sceneType": "PLATFORM",
-      "label": "Dash Through...",
+      "label": "FIELD_DASH_PASSTHROUGH",
+      "description": "FIELD_DASH_PASSTHROUGH_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "Nothing"],
-        [1, "Actors"],
-        [2, "Actors & Triggers"],
-        [3, "Triggers, Actors & Walls"]
+        [1, "FIELD_ACTORS"],
+        [2, "FIELD_ACTORS_TRIGGERS"],
+        [3, "FIELD_ACTORS_TRIGGERS_WALLS"]
       ],
       "cType": "UBYTE",
       "defaultValue": 0,
