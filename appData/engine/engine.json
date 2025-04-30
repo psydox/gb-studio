@@ -762,14 +762,15 @@
     {
       "key": "plat_dash",
       "sceneType": "PLATFORM",
-      "label": "Dash Input",
+      "label": "FIELD_DASH_INPUT",
+      "description": "FIELD_DASH_INPUT_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "Off"],
-        [1, "Interact"],
-        [2, "Double Tap"],
-        [3, "Down and Jump"]
+        [0, "FIELD_NONE"],
+        [1, "FIELD_INTERACT_TAP"],
+        [2, "FIELD_DIR_DOUBLE_TAP"],
+        [3, "FIELD_DOWN_AND_JUMP_TAP"]
       ],
       "cType": "UBYTE",
       "defaultValue": 2,
@@ -784,13 +785,14 @@
     {
       "key": "plat_dash_style",
       "sceneType": "PLATFORM",
-      "label": "Dash Style",
+      "label": "FIELD_CAN_DASH_WHILE",
+      "description": " FIELD_CAN_DASH_WHILE_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "Ground"],
-        [1, "Air"],
-        [2, "Both"]
+        [0, "FIELD_ON_GROUND"],
+        [1, "FIELD_IN_AIR"],
+        [2, "FIELD_BOTH"]
       ],
       "cType": "UBYTE",
       "defaultValue": 0,
@@ -805,14 +807,15 @@
     {
       "key": "plat_dash_momentum",
       "sceneType": "PLATFORM",
-      "label": "Dash Momentum",
+      "label": "FIELD_DASH_MOMENTUM",
+      "description": "FIELD_DASH_MOMENTUM_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "None"],
-        [1, "Horizontal Momentum Only"],
-        [2, "Veritcal Momentum Only (no dash through walls)"],
-        [3, "Both"]
+        [0, "FIELD_NONE"],
+        [1, "FIELD_HORIZONTAL"],
+        [2, "FIELD_VERTICAL"],
+        [3, "FIELD_BOTH"]
       ],
       "cType": "UBYTE",
       "defaultValue": 0,
