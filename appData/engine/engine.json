@@ -786,7 +786,7 @@
       "key": "plat_dash_style",
       "sceneType": "PLATFORM",
       "label": "FIELD_CAN_DASH_WHILE",
-      "description": " FIELD_CAN_DASH_WHILE_DESC",
+      "description": "FIELD_CAN_DASH_WHILE_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
