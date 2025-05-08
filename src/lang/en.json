@@ -1111,6 +1111,8 @@
   "FIELD_DASH_PASSTHROUGH_DESC": "Choose which collision types the player ignores while dashing.",
   "FIELD_ACTORS_TRIGGERS": "Actors / Triggers",
   "FIELD_ACTORS_TRIGGERS_WALLS": "Actors / Triggers / Walls",
+  "FIELD_PREVENT_BACKTRACKING": "Prevent Backtracking",
+  "FIELD_PREVENT_BACKTRACKING_DESC": "Prevents camera from scrolling in selected directions.",
 
   "// 7": "Asset Viewer ---------------------------------------------",
   "ASSET_SEARCH": "Search...",

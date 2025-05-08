@@ -417,11 +417,15 @@ const toASMMoveFlags = (moveType: string, useCollisions: boolean) => {
   );
 };
 
-const toASMCameraLock = (axis: ScriptBuilderAxis[]) => {
+const toASMCameraLock = (axis: ScriptBuilderAxis[], preventScroll: ActorDirection[]) => {
   return unionFlags(
     ([] as string[]).concat(
       axis.includes("x") ? ".CAMERA_LOCK_X" : [],
-      axis.includes("y") ? ".CAMERA_LOCK_Y" : []
+      axis.includes("y") ? ".CAMERA_LOCK_Y" : [],
+      preventScroll.includes("left") ? ".CAMERA_LOCK_X_MIN" : [],
+      preventScroll.includes("right") ? ".CAMERA_LOCK_X_MAX" : [],
+      preventScroll.includes("up") ? ".CAMERA_LOCK_Y_MIN" : [],
+      preventScroll.includes("down") ? ".CAMERA_LOCK_Y_MAX" : []
     )
   );
 };
@@ -4815,7 +4819,7 @@ extern void __mute_mask_${symbol};
     this._addNL();
   };
 
-  cameraLock = (speed = 0, axis: ScriptBuilderAxis[]) => {
+  cameraLock = (speed = 0, axis: ScriptBuilderAxis[], preventScroll: ActorDirection[] = []) => {
     const actorRef = this._declareLocal("actor", 4);
     this._addComment("Camera Lock");
     this._setConst(actorRef, 0);
@@ -4831,7 +4835,7 @@ extern void __mute_mask_${symbol};
     if (speed === 0) {
       this._cameraSetPos(".ARG1");
     }
-    this._cameraMoveTo(".ARG1", pxToSubpx(speed), toASMCameraLock(axis));
+    this._cameraMoveTo(".ARG1", pxToSubpx(speed), toASMCameraLock(axis, preventScroll));
     this._stackPop(2);
   };
 
