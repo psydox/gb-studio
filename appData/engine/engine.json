@@ -805,39 +805,16 @@
       ]
     },
     {
-      "key": "plat_dash_momentum",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_DASH_MOMENTUM",
-      "description": "FIELD_DASH_MOMENTUM_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
-      "options": [
-        [0, "FIELD_NONE"],
-        [1, "FIELD_HORIZONTAL"],
-        [2, "FIELD_VERTICAL"],
-        [3, "FIELD_BOTH"]
-      ],
-      "cType": "UBYTE",
-      "defaultValue": 0,
-      "indent": 1,
-      "conditions": [
-        {
-          "key": "FEAT_PLATFORM_DASH",
-          "truthy": true
-        }
-      ]
-    },
-    {
-      "key": "plat_dash_through",
+      "key": "plat_dash_mask",
       "sceneType": "PLATFORM",
       "label": "FIELD_DASH_PASSTHROUGH",
       "description": "FIELD_DASH_PASSTHROUGH_DESC",
       "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
+      "type": "mask",
       "options": [
-        [1, "FIELD_ACTORS"],
-        [2, "FIELD_ACTORS_TRIGGERS"],
-        [3, "FIELD_ACTORS_TRIGGERS_WALLS"]
+        [-4, "FIELD_ACTORS"],
+        [-8, "FIELD_TRIGGERS"],
+        [-16, "FIELD_WALLS"]
       ],
       "cType": "UBYTE",
       "defaultValue": 0,
@@ -852,7 +829,8 @@
     {
       "key": "plat_dash_dist",
       "sceneType": "PLATFORM",
-      "label": "Dash Distance",
+      "label": "FIELD_DASH_DISTANCE",
+      "description": "FIELD_DASH_DISTANCE_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "WORD",
@@ -871,7 +849,8 @@
     {
       "key": "plat_dash_frames",
       "sceneType": "PLATFORM",
-      "label": "Dash Time (frames)",
+      "label": "FIELD_DASH_FRAMES",
+      "description": "FIELD_DASH_FRAMES_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
@@ -889,7 +868,8 @@
     {
       "key": "plat_dash_ready_max",
       "sceneType": "PLATFORM",
-      "label": "Dash Recharge Time",
+      "label": "FIELD_DASH_COOLDOWN",
+      "description": "FIELD_DASH_COOLDOWN_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
@@ -907,13 +887,31 @@
     {
       "key": "plat_dash_deadzone",
       "sceneType": "PLATFORM",
-      "label": "Dash Camera Deadzone",
+      "label": "FIELD_DASH_DEADZONE",
+      "description": "FIELD_DASH_DEADZONE_DESC",
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "UBYTE",
       "defaultValue": 4,
       "min": 0,
       "max": 32,
+      "indent": 1,
+      "conditions": [
+        {
+          "key": "FEAT_PLATFORM_DASH",
+          "truthy": true
+        }
+      ]
+    },
+    {
+      "key": "plat_dash_use_grav",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_DASH_USE_GRAVITY",
+      "description": "FIELD_DASH_USE_GRAVITY_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
+      "cType": "UBYTE",
+      "defaultValue": 0,
       "indent": 1,
       "conditions": [
         {

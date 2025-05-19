@@ -284,6 +284,44 @@ export const EngineFieldInput: FC<EngineFieldInputProps> = ({
       />
     );
   }
+  if (field.type === "mask") {
+    const theValue = value !== undefined ? value : field.defaultValue;
+    const options = (field.options || []).map(
+      ([value, label]) => [value, l10n(label as L10NKey)] as [number, string],
+    );
+
+    const values = options
+      .filter(([bit]) => {
+        const absBit = Math.abs(bit);
+        const isSet = ((theValue as number) & absBit) !== 0;
+        return bit < 0 ? !isSet : isSet;
+      })
+      .map(([bit]) => bit);
+
+    return (
+      <ToggleButtons
+        name={field.key}
+        value={values}
+        onChange={(e: number[]) => {
+          let result = 0;
+          for (const [bit] of options) {
+            const absBit = Math.abs(bit);
+            const isSelected = e.includes(bit);
+            if (bit >= 0) {
+              if (isSelected) result |= absBit;
+            } else {
+              // Negative option values invert the bit
+              if (!isSelected) result |= absBit;
+            }
+          }
+          onChange(result);
+        }}
+        options={options}
+        allowMultiple
+        allowNone
+      />
+    );
+  }
   return <div>Unknown type {field.type}</div>;
 };
 
