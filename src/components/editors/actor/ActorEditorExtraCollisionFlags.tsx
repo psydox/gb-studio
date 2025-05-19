@@ -10,11 +10,14 @@ import {
 } from "shared/lib/helpers/array";
 import { sceneSelectors } from "store/features/entities/entitiesState";
 import l10n, { L10NKey } from "shared/lib/lang/l10n";
+import { ExtraActorCollisionFlagDef } from "store/features/engine/engineState";
 
 interface ActorEditorExtraCollisionFlagsProps {
   actor: ActorNormalized;
   sceneId?: string;
 }
+
+const emptyCollisionFlagDefs: ExtraActorCollisionFlagDef[] = [];
 
 export const ActorEditorExtraCollisionFlags: FC<
   ActorEditorExtraCollisionFlagsProps
@@ -26,12 +29,14 @@ export const ActorEditorExtraCollisionFlags: FC<
   );
 
   const extraActorCollisionFlags = useAppSelector((state) => {
-    if (!scene || !scene.type || !state.engine.sceneTypes) return [];
+    if (!scene || !scene.type || !state.engine.sceneTypes)
+      return emptyCollisionFlagDefs;
     const key = scene.type || "";
     const sceneType = state.engine.sceneTypes.find((s) => s.key === key);
-    if (sceneType && sceneType.extraActorCollisionFlags)
+    if (sceneType && sceneType.extraActorCollisionFlags) {
       return sceneType.extraActorCollisionFlags;
-    return [];
+    }
+    return emptyCollisionFlagDefs;
   });
 
   const onChangeActorProp = useCallback(
