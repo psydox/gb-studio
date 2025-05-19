@@ -1122,6 +1122,10 @@
   "FIELD_DASH_COOLDOWN_DESC": "The number of frames that the player cannot dash after dashing.",
   "FIELD_DASH_DEADZONE": "Dash Camera Deadzone X",
   "FIELD_DASH_DEADZONE_DESC": "Override the horizontal deadzone distance while dashing, determining how far the player can move from the screen center before the camera follows.",
+  "FIELD_IS_SOLID": "Is Solid",
+  "FIELD_IS_SOLID_DESC": "Sets if player should not be able to walk through this actor.",
+  "FIELD_IS_PLATFORM": "Is Platform",
+  "FIELD_IS_PLATFORM_DESC": "Sets if player should be able to stand on this actor like a platform.",
 
   "// 7": "Asset Viewer ---------------------------------------------",
   "ASSET_SEARCH": "Search...",

@@ -932,52 +932,6 @@
       "defaultValue": 0
     },
     {
-      "key": "plat_mp_group",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_PLATFORM_ACTOR_COLLISION_GROUP",
-      "description": "FIELD_PLATFORM_ACTOR_COLLISION_GROUP_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
-      "options": [
-        [0, "None"],
-        [2, "Collision Group 1"],
-        [4, "Collision Group 2"],
-        [8, "Collision Group 3"]
-      ],
-      "cType": "UBYTE",
-      "defaultValue": 4,
-      "indent": 1,
-      "conditions": [
-        {
-          "key": "FEAT_PLATFORM_SOLID_ACTORS",
-          "truthy": true
-        }
-      ]
-    },
-    {
-      "key": "plat_solid_group",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_SOLID_ACTOR_COLLISION_GROUP",
-      "description": "FIELD_SOLID_ACTOR_COLLISION_GROUP_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
-      "options": [
-        [0, "None"],
-        [2, "Collision Group 1"],
-        [4, "Collision Group 2"],
-        [8, "Collision Group 3"]
-      ],
-      "cType": "UBYTE",
-      "defaultValue": 8,
-      "indent": 1,
-      "conditions": [
-        {
-          "key": "FEAT_PLATFORM_SOLID_ACTORS",
-          "truthy": true
-        }
-      ]
-    },
-    {
       "key": "FEAT_PLATFORM_SLOPES",
       "sceneType": "PLATFORM",
       "label": "FIELD_FEAT_PLATFORM_SLOPES",
@@ -1155,6 +1109,22 @@
       "key": "PLATFORM",
       "label": "GAMETYPE_PLATFORMER",
       "files": ["include/states/platform.h", "src/states/platform.c"],
+      "extraActorCollisionFlags": [
+        {
+          "key": "solid",
+          "label": "FIELD_IS_SOLID",
+          "description": "FIELD_IS_SOLID_DESC",
+          "setFlag": "solid",
+          "clearFlags": ["platform"]
+        },
+        {
+          "key": "platform",
+          "label": "FIELD_IS_PLATFORM",
+          "description": "FIELD_IS_PLATFORM_DESC",
+          "setFlag": "platform",
+          "clearFlags": ["solid"]
+        }
+      ],
       "collisionTiles": [
         {
           "key": "solid",

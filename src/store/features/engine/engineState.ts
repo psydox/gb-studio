@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import keyBy from "lodash/keyBy";
 import { BaseCondition } from "shared/lib/conditionsFilter";
-import { CollisionTileDef } from "shared/lib/resources/types";
+import {
+  CollisionExtraFlag,
+  CollisionTileDef,
+} from "shared/lib/resources/types";
 import projectActions from "store/features/project/projectActions";
 
 export type EngineFieldType = "number" | "slider" | "checkbox" | "select";
@@ -34,11 +37,20 @@ export type EngineFieldSchema = {
   indent?: number;
 };
 
+export type ExtraActorCollisionFlagDef = {
+  key: string;
+  label: string;
+  description?: string;
+  setFlag: CollisionExtraFlag;
+  clearFlags?: CollisionExtraFlag[];
+};
+
 export type SceneTypeSchema = {
   key: string;
   label: string;
   files?: string[];
   collisionTiles?: CollisionTileDef[];
+  extraActorCollisionFlags?: ExtraActorCollisionFlagDef[];
 };
 
 export interface EngineState {

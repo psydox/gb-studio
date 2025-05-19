@@ -7,6 +7,8 @@ import type {
 
 export type CollisionGroup = "" | "1" | "2" | "3" | "player";
 
+export type CollisionExtraFlag = "1" | "2" | "3" | "4" | "solid" | "platform";
+
 export type ActorDirection = "up" | "down" | "left" | "right";
 export type SpriteAnimationType =
   | "fixed"
@@ -85,7 +87,7 @@ export const actorScriptKeys = [
   "hit2Script",
   "hit3Script",
 ] as const;
-export type ActorScriptKey = typeof actorScriptKeys[number];
+export type ActorScriptKey = (typeof actorScriptKeys)[number];
 
 export type Actor = {
   id: string;
@@ -105,6 +107,7 @@ export type Actor = {
   isPinned: boolean;
   persistent: boolean;
   collisionGroup: CollisionGroup;
+  collisionExtraFlags: CollisionExtraFlag[];
   prefabScriptOverrides: Record<string, ScriptEventArgsOverride>;
   script: ScriptEvent[];
   startScript: ScriptEvent[];
@@ -148,7 +151,7 @@ export type ActorPrefabNormalized = Omit<
 >;
 
 export const triggerScriptKeys = ["script", "leaveScript"] as const;
-export type TriggerScriptKey = typeof triggerScriptKeys[number];
+export type TriggerScriptKey = (typeof triggerScriptKeys)[number];
 
 export type Trigger = {
   id: string;
@@ -423,7 +426,7 @@ export const sceneScriptKeys = [
   "playerHit2Script",
   "playerHit3Script",
 ] as const;
-export type SceneScriptKey = typeof sceneScriptKeys[number];
+export type SceneScriptKey = (typeof sceneScriptKeys)[number];
 
 export type Scene = {
   id: string;
@@ -537,13 +540,13 @@ export const unitTypes = [
   ...gridUnitTypes,
 ] as const;
 
-export type UnitType = typeof unitTypes[number];
-export type DistanceUnitType = typeof distanceUnitTypes[number];
-export type TimeUnitType = typeof timeUnitTypes[number];
-export type GridUnitType = typeof gridUnitTypes[number];
+export type UnitType = (typeof unitTypes)[number];
+export type DistanceUnitType = (typeof distanceUnitTypes)[number];
+export type TimeUnitType = (typeof timeUnitTypes)[number];
+export type GridUnitType = (typeof gridUnitTypes)[number];
 
 export const movementTypes = ["horizontal", "vertical", "diagonal"] as const;
-export type MovementType = typeof movementTypes[number];
+export type MovementType = (typeof movementTypes)[number];
 
 export interface ScriptEventFieldSchema {
   label?: string | React.ReactNode;
