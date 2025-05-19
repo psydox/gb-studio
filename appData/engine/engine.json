@@ -1007,10 +1007,10 @@
       "group": "GAMETYPE_PLATFORMER",
       "type": "select",
       "options": [
-        [0, "None"],
-        [1, "Left"],
-        [2, "Right"],
-        [3, "Both"]
+        [0, "FIELD_NONE"],
+        [1, "FIELD_LEFT"],
+        [2, "FIELD_RIGHT"],
+        [3, "FIELD_BOTH"]
       ],
       "cType": "UBYTE",
       "defaultValue": 3,
