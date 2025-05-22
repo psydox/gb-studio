@@ -765,6 +765,65 @@
       ]
     },
     {
+      "key": "FEAT_PLATFORM_LADDERS_JUMP",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_PLATFORM_LADDERS_ALLOW_JUMP",
+      "description": "FIELD_PLATFORM_LADDERS_ALLOW_JUMP_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
+      "cType": "define",
+      "defaultValue": 0,
+      "indent": 1,
+      "conditions": [
+        {
+          "key": "FEAT_PLATFORM_LADDERS",
+          "truthy": true
+        },
+        {
+          "key": "FEAT_PLATFORM_JUMP",
+          "truthy": true
+        }
+      ]
+    },
+    {
+      "key": "FEAT_PLATFORM_LADDERS_DROP",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_PLATFORM_LADDERS_ALLOW_DROP",
+      "description": "FIELD_PLATFORM_LADDERS_ALLOW_DROP_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
+      "cType": "define",
+      "defaultValue": 1,
+      "indent": 1,
+      "conditions": [
+        {
+          "key": "FEAT_PLATFORM_LADDERS",
+          "truthy": true
+        },
+        {
+          "key": "FEAT_PLATFORM_JUMP",
+          "truthy": true
+        }
+      ]
+    },
+    {
+      "key": "FEAT_PLATFORM_LADDERS_WALK_OFF",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_PLATFORM_LADDERS_ALLOW_WALK_OFF",
+      "description": "FIELD_PLATFORM_LADDERS_ALLOW_WALK_OFF_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
+      "cType": "define",
+      "defaultValue": 1,
+      "indent": 1,
+      "conditions": [
+        {
+          "key": "FEAT_PLATFORM_LADDERS",
+          "truthy": true
+        }
+      ]
+    },
+    {
       "key": "FEAT_PLATFORM_DASH",
       "sceneType": "PLATFORM",
       "label": "FIELD_FEAT_PLATFORM_DASH",
@@ -799,19 +858,19 @@
       ]
     },
     {
-      "key": "plat_dash_style",
+      "key": "plat_dash_from",
       "sceneType": "PLATFORM",
-      "label": "FIELD_CAN_DASH_WHILE",
-      "description": "FIELD_CAN_DASH_WHILE_DESC",
+      "label": "FIELD_CAN_DASH_FROM",
+      "description": "FIELD_CAN_DASH_FROM_DESC",
       "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
+      "type": "mask",
       "options": [
-        [0, "FIELD_ON_GROUND"],
-        [1, "FIELD_IN_AIR"],
-        [2, "FIELD_BOTH"]
+        [1, "FIELD_GROUND"],
+        [2, "FIELD_AIR"],
+        [4, "FIELD_LADDER"]
       ],
       "cType": "UBYTE",
-      "defaultValue": 0,
+      "defaultValue": 3,
       "indent": 1,
       "conditions": [
         {
