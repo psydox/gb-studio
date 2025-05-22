@@ -156,6 +156,22 @@
       "max": 32
     },
     {
+      "key": "plat_camera_block",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_KEEP_WITHIN_SCREEN_BOUNDS",
+      "description": "FIELD_KEEP_WITHIN_SCREEN_BOUNDS_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "select",
+      "options": [
+        [0, "FIELD_NONE"],
+        [1, "FIELD_LEFT"],
+        [2, "FIELD_RIGHT"],
+        [3, "FIELD_BOTH"]
+      ],
+      "cType": "UBYTE",
+      "defaultValue": 0
+    },
+    {
       "key": "FEAT_PLATFORM_RUN",
       "sceneType": "PLATFORM",
       "label": "FIELD_FEAT_PLATFORM_RUN",
@@ -921,17 +937,6 @@
       ]
     },
     {
-      "key": "FEAT_PLATFORM_SOLID_ACTORS",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_FEAT_PLATFORM_SOLID_ACTORS",
-      "description": "FIELD_FEAT_PLATFORM_SOLID_ACTORS_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "checkbox",
-      "cType": "define",
-      "isHeading": true,
-      "defaultValue": 0
-    },
-    {
       "key": "FEAT_PLATFORM_SLOPES",
       "sceneType": "PLATFORM",
       "label": "FIELD_FEAT_PLATFORM_SLOPES",
@@ -941,40 +946,6 @@
       "cType": "define",
       "isHeading": true,
       "defaultValue": 1
-    },
-    {
-      "key": "FEAT_PLATFORM_EDGE_LOCKING",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_FEAT_PLATFORM_EDGE_LOCKING",
-      "description": "FIELD_FEAT_PLATFORM_EDGE_LOCKING_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "checkbox",
-      "cType": "define",
-      "isHeading": true,
-      "defaultValue": 0
-    },
-    {
-      "key": "plat_camera_block",
-      "sceneType": "PLATFORM",
-      "label": "FIELD_KEEP_WITHIN_SCREEN_BOUNDS",
-      "description": "FIELD_KEEP_WITHIN_SCREEN_BOUNDS_DESC",
-      "group": "GAMETYPE_PLATFORMER",
-      "type": "select",
-      "options": [
-        [0, "FIELD_NONE"],
-        [1, "FIELD_LEFT"],
-        [2, "FIELD_RIGHT"],
-        [3, "FIELD_BOTH"]
-      ],
-      "cType": "UBYTE",
-      "defaultValue": 3,
-      "indent": 1,
-      "conditions": [
-        {
-          "key": "FEAT_PLATFORM_EDGE_LOCKING",
-          "truthy": true
-        }
-      ]
     },
     {
       "key": "FEAT_PLATFORM_KNOCKBACK",
