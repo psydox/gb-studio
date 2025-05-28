@@ -29,6 +29,7 @@ import { isEngineFieldVisible } from "shared/lib/engineFields/engineFieldVisible
 import { FlexRow } from "ui/spacing/Spacing";
 import { useEngineFieldsDefaultValues } from "./useEngineFieldsDefaultValues";
 import ToggleButtons from "ui/form/ToggleButtons";
+import { pxToSubpx, pxToSubpxPrecise } from "shared/lib/helpers/subpixels";
 
 const { editEngineFieldValue, removeEngineFieldValue } = entitiesActions;
 
@@ -100,13 +101,13 @@ const toFieldUnits = (value: number, field: EngineFieldSchema): number => {
     field.editUnits === "subpxVel" ||
     field.editUnits === "subpxAcc"
   ) {
-    return roundTo(value / 16, 2);
+    return roundTo(value / pxToSubpx(1), 2);
   }
   if (
     field.editUnits === "subpxVelPrecise" ||
     field.editUnits === "subpxAccPrecise"
   ) {
-    return roundTo(value / 4096, 2);
+    return roundTo(value / pxToSubpxPrecise(1), 2);
   }
   return roundTo(value, 2);
 };
@@ -123,13 +124,13 @@ const fromFieldUnits = (
     field.editUnits === "subpxVel" ||
     field.editUnits === "subpxAcc"
   ) {
-    return Math.floor(value * 16);
+    return pxToSubpx(value);
   }
   if (
     field.editUnits === "subpxVelPrecise" ||
     field.editUnits === "subpxAccPrecise"
   ) {
-    return Math.floor(value * 4096);
+    return pxToSubpxPrecise(value);
   }
   return Math.floor(value);
 };

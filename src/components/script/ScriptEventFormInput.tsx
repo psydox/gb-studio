@@ -784,6 +784,7 @@ const ScriptEventFormInput = ({
           name={id}
           value={String(value ?? "")}
           onChange={onChangeField}
+          showUnitsWarning
         />
       </OffscreenSkeletonInput>
     );

@@ -1701,6 +1701,8 @@
   "WARNING_BACKGROUND_IS_NOT_A_VALID_PNG": "Background \"{filename}\" is not a valid PNG file",
   "WARNING_BACKGROUND_IN_MULTIPLE_COLOR_MODES": "Background \"{filename}\" is being used in multiple color modes so may not appear correctly on all devices. When overriding a scene's color mode, do not reuse sprites or backgrounds from scenes without an override. Duplicate the files if necessary",
   "WARNING_SPRITE_IN_MULTIPLE_COLOR_MODES": "Sprite \"{filename}\" is being used in multiple color modes so may not appear correctly on all devices. When overriding a scene's color mode, do not reuse sprites or backgrounds from scenes without an override. Duplicate the files if necessary",
+  "WARNING_FIELD_UNITS_SUBPX": "This field is using sub pixel units. The value here will be {multiplier}x larger than the value displayed in 'Settings'",
+  "WARNING_FIELD_UNITS_SUBPX_PRECISE": "This field is using precision sub pixel units. The value here will be {multiplier}x larger than the value displayed in 'Settings'",
 
   "// 12": "Errors -------------------------------------------------------",
 

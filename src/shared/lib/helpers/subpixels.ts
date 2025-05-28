@@ -7,6 +7,9 @@ export const tileToSubpx = (x: number) =>
 export const pxToSubpx = (x: number) =>
   Math.floor(x * (1 << NUM_SUBPIXEL_BITS));
 
+export const pxToSubpxPrecise = (x: number) =>
+  Math.floor(x * ((1 << NUM_SUBPIXEL_BITS) << 8));
+
 export const subpxShiftForUnits = (units: DistanceUnitType) => {
   return units === "tiles" ? NUM_SUBPIXEL_BITS + 3 : NUM_SUBPIXEL_BITS;
 };
