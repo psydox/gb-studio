@@ -1,6 +1,6 @@
 const l10n = require("../helpers/l10n").default;
 
-const id = "EVENT_SET_PLATFORMER_STATE_SCRIPT";
+const id = "EVENT_REMOVE_PLATFORMER_STATE_SCRIPT";
 const groups = ["EVENT_GROUP_ENGINE_FIELDS"];
 const subGroups = {
   EVENT_GROUP_ENGINE_FIELDS: "GAMETYPE_PLATFORMER",
@@ -31,27 +31,6 @@ const fields = [
       ["blankEnd", l10n("FIELD_BLANK_END")],
     ],
   },
-  {
-    key: "__scriptTabs",
-    type: "tabs",
-    defaultValue: "scriptinput",
-    values: {
-      scriptinput: l10n("FIELD_ON_STATE"),
-    },
-  },
-  {
-    key: "script",
-    label: l10n("FIELD_ON_STATE"),
-    description: l10n("FIELD_ON_STATE"),
-    type: "events",
-    allowedContexts: ["global", "entity"],
-    conditions: [
-      {
-        key: "__scriptTabs",
-        in: [undefined, "scriptinput"],
-      },
-    ],
-  },
 ];
 
 const valuesMap = {
@@ -74,31 +53,14 @@ const valuesMap = {
 };
 
 const compile = (input, helpers) => {
-  const {
-    _compileSubScript,
-    _addComment,
-    _callNative,
-    _stackPushConst,
-    _stackPop,
-  } = helpers;
+  const { _addComment, _stackPushConst, _callNative, _stackPop } = helpers;
 
   const callbackLabel = valuesMap[input.state] ?? valuesMap.fallStart;
 
-  const scriptRef = _compileSubScript(
-    "state",
-    input.script,
-    "plat_callback_" + callbackLabel,
-  );
-
-  const bank = `___bank_${scriptRef}`;
-  const ptr = `_${scriptRef}`;
-
-  _addComment("Set Platformer Script");
+  _addComment("Remove Platformer State Script");
   _stackPushConst(callbackLabel);
-  _stackPushConst(bank);
-  _stackPushConst(ptr);
-  _callNative("plat_callback_attach");
-  _stackPop(3);
+  _callNative("plat_callback_detach");
+  _stackPop(1);
 };
 
 module.exports = {

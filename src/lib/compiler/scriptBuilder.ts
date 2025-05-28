@@ -3750,7 +3750,7 @@ extern void __mute_mask_${symbol};
       } else if (height === "high") {
         value = pxToSubpx(-0x600);
       }
-      this._setConstMemInt16("pl_vel_y", value);
+      this._setConstMemInt16("plat_vel_y", value);
       this._addNL();
     }
   };

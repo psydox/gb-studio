@@ -437,15 +437,17 @@ const EngineFieldsEditor: FC<EngineFieldsEditorProps> = ({
               </CardHeading>
             </>
           )}
-          {group.fields.map((field) => (
-            <EngineFieldRow
-              key={field.key}
-              field={field}
-              values={values}
-              defaultValues={defaultValues}
-              searchTerm={searchTerm}
-            />
-          ))}
+          {group.fields
+            .filter((field) => !field.runtimeOnly)
+            .map((field) => (
+              <EngineFieldRow
+                key={field.key}
+                field={field}
+                values={values}
+                defaultValues={defaultValues}
+                searchTerm={searchTerm}
+              />
+            ))}
           {!searchTerm && (
             <CardButtons>
               <Button onClick={resetToDefault(group.fields)}>

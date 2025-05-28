@@ -1029,6 +1029,105 @@
       "isHeading": true,
       "defaultValue": 0
     },
+
+    {
+      "key": "plat_actor_attached",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_ACTOR_ATTACHED",
+      "description": "FIELD_ACTOR_ATTACHED_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "checkbox",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_run_stage",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_RUN_STAGE",
+      "description": "Current run stage (0-4)",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_jump_type",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_JUMP_TYPE",
+      "description": "FIELD_JUMP_TYPE_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_ct_val",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_COYOTE_TIME_COUNTER",
+      "description": "FIELD_COYOTE_TIME_COUNTER_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_dj_val",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_DOUBLE_JUMP_COUNTER",
+      "description": "FIELD_DOUBLE_JUMP_COUNTER_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_wj_val",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_WALL_JUMP_COUNTER",
+      "description": "FIELD_WALL_JUMP_COUNTER_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_wc_val",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_WALL_JUMP_COYOTE_TIME_COUNTER",
+      "description": "FIELD_WALL_JUMP_COYOTE_TIME_COUNTER_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "number",
+      "cType": "UBYTE",
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
+    {
+      "key": "plat_next_state",
+      "sceneType": "PLATFORM",
+      "label": "FIELD_PLATFORM_STATE",
+      "description": "FIELD_PLATFORM_STATE_DESC",
+      "group": "GAMETYPE_PLATFORMER",
+      "type": "select",
+      "cType": "UBYTE",
+      "options": [
+        [0, "FIELD_FALL_STATE"],
+        [1, "FIELD_GROUND_STATE"],
+        [2, "FIELD_JUMP_STATE"],
+        [3, "FIELD_DASH_STATE"],
+        [4, "FIELD_LADDER_STATE"],
+        [5, "FIELD_WALL_STATE"],
+        [6, "FIELD_KNOCKBACK_STATE"],
+        [7, "FIELD_BLANK_STATE"]
+      ],
+      "defaultValue": 0,
+      "runtimeOnly": true
+    },
     {
       "key": "shooter_scroll_speed",
       "sceneType": "SHMUP",

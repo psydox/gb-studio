@@ -37,6 +37,7 @@ export type EngineFieldSchema = {
   editUnits?: EngineFieldUnitsType;
   isHeading?: boolean;
   indent?: number;
+  runtimeOnly?: boolean;
 };
 
 export type ExtraActorCollisionFlagDef = {

@@ -99,7 +99,7 @@ ${usedEngineFields
 _script_engine_init::
 ${usedEngineFields
   .map((engineField) => {
-    if (engineField.cType === "define") {
+    if (engineField.cType === "define" || engineField.runtimeOnly) {
       return "";
     }
     const engineValue = engineFieldValues.find((v) => v.id === engineField.key);
