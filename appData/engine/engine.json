@@ -151,6 +151,7 @@
       "group": "GAMETYPE_PLATFORMER",
       "type": "slider",
       "cType": "BYTE",
+      "editUnits": "px",
       "defaultValue": 4,
       "min": 0,
       "max": 32

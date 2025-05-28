@@ -136,11 +136,12 @@ const fromFieldUnits = (
 
 export const EngineFieldUnits = ({ field }: { field: EngineFieldSchema }) => {
   if (!field.editUnits) {
-    return null;
+    return <SettingRowUnits />;
   }
   return (
     <SettingRowUnits>
-      {field.editUnits === "subpx" && "px"}
+      {(field.editUnits === "subpx" || field.editUnits === "px") &&
+        l10n("FIELD_PIXELS_SHORT")}
       {(field.editUnits === "subpxVel" ||
         field.editUnits === "subpxVelPrecise") &&
         l10n("FIELD_PIXELS_PER_FRAME_SHORT")}

@@ -12,6 +12,7 @@ export type EngineFieldType = "number" | "slider" | "checkbox" | "select";
 export type EngineFieldCType = "UBYTE" | "UWORD" | "BYTE" | "WORD" | "define";
 
 export type EngineFieldUnitsType =
+  | "px"
   | "subpx"
   | "subpxVel"
   | "subpxAcc"

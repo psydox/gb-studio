@@ -20,8 +20,17 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
+const SliderWrapper = styled.div`
+  width: 100%;
+
+  @container (max-width: 150px) {
+    display: none;
+  }
+`;
+
 const InnerWrapper = styled.div`
   display: flex;
+  container-type: inline-size;
 
   ${StyledInput} {
     width: 70px;
@@ -70,13 +79,15 @@ export const SliderField: FC<SliderFieldProps> = ({
             onChange?.(newValue);
           }}
         />
-        <Slider
-          value={sliderValue}
-          min={min}
-          max={max}
-          step={step}
-          onChange={onChange}
-        />
+        <SliderWrapper>
+          <Slider
+            value={sliderValue}
+            min={min}
+            max={max}
+            step={step}
+            onChange={onChange}
+          />
+        </SliderWrapper>
       </InnerWrapper>
     </Wrapper>
   );
