@@ -207,8 +207,6 @@ export const toASMCollisionGroup = (
     baseGroup = "COLLISION_GROUP_3";
   }
 
-  console.log("baseGroup", baseGroup, extras);
-
   if (extras && extras.length > 0) {
     return (
       baseGroup +
@@ -1421,7 +1419,6 @@ export const compileStateDefines = (
             ? engineValue.value
             : engineField.defaultValue;
         if (engineField.type === "checkbox") {
-          console.log({ engineField, value });
           if (value) {
             return `#define ${String(engineField.key).padEnd(32, " ")}\n`;
           }
