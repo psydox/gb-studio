@@ -86,6 +86,11 @@ const fieldMax = (
   }
 };
 
+const roundTo = (x: number, decimalPlaces: number): number => {
+  const factor = Math.pow(10, decimalPlaces);
+  return Math.round(x * factor) / factor;
+};
+
 const toFieldUnits = (value: number, field: EngineFieldSchema): number => {
   if (value === undefined) {
     return value;
@@ -95,15 +100,15 @@ const toFieldUnits = (value: number, field: EngineFieldSchema): number => {
     field.editUnits === "subpxVel" ||
     field.editUnits === "subpxAcc"
   ) {
-    return value / 16;
+    return roundTo(value / 16, 2);
   }
   if (
     field.editUnits === "subpxVelPrecise" ||
     field.editUnits === "subpxAccPrecise"
   ) {
-    return value / 4096;
+    return roundTo(value / 4096, 2);
   }
-  return value;
+  return roundTo(value, 2);
 };
 
 const fromFieldUnits = (
@@ -126,7 +131,7 @@ const fromFieldUnits = (
   ) {
     return Math.floor(value * 4096);
   }
-  return value;
+  return Math.floor(value);
 };
 
 export const EngineFieldUnits = ({ field }: { field: EngineFieldSchema }) => {
@@ -154,7 +159,7 @@ export const EngineFieldInput: FC<EngineFieldInputProps> = ({
   if (field.type === "slider") {
     const theValue =
       typeof value === "number"
-        ? toFieldUnits(Number(value), field)
+        ? roundTo(toFieldUnits(Number(value), field), 2)
         : undefined;
     const min = toFieldUnits(fieldMin(field.min, field.cType), field);
     const max = toFieldUnits(fieldMax(field.max, field.cType), field);
@@ -173,7 +178,7 @@ export const EngineFieldInput: FC<EngineFieldInputProps> = ({
         }
         min={min}
         max={max}
-        step={toFieldUnits(1, field)}
+        step={Math.max(0.01, toFieldUnits(1, field))}
       />
     );
   }

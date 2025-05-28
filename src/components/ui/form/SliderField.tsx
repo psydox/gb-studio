@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Slider } from "./Slider";
 import { Label } from "./Label";
 import { StyledInput } from "./style";
+import { NumberInput } from "./NumberInput";
 
 export interface SliderFieldProps {
   name: string;
@@ -52,7 +53,7 @@ export const SliderField: FC<SliderFieldProps> = ({
     <Wrapper>
       {label && <Label htmlFor={name}>{label}</Label>}
       <InnerWrapper>
-        <StyledInput
+        <NumberInput
           id={name}
           type="number"
           name={name}

@@ -27,6 +27,15 @@ interface InitialState {
   usedSceneTypeIds: string[];
 }
 
+const roundValue = (
+  value: string | number | boolean | undefined,
+): string | number | boolean | undefined => {
+  if (typeof value === "number") {
+    return Math.floor(value);
+  }
+  return value;
+};
+
 export const compileScriptEngineInit = ({
   startX,
   startY,
@@ -44,7 +53,7 @@ export const compileScriptEngineInit = ({
     (engineField: EngineFieldSchema) =>
       engineField.cType !== "define" &&
       (!engineField.sceneType ||
-        usedSceneTypeIds.includes(engineField.sceneType))
+        usedSceneTypeIds.includes(engineField.sceneType)),
   );
 
   return `.include "vm.i"
@@ -71,7 +80,7 @@ ${fonts.map((font) => `        IMPORT_FAR_PTR_DATA _${font.symbol}`).join("\n")}
 ${avatarFonts
   .map(
     (_, avatarFontIndex) =>
-      `        IMPORT_FAR_PTR_DATA _${avatarFontSymbol(avatarFontIndex)}`
+      `        IMPORT_FAR_PTR_DATA _${avatarFontSymbol(avatarFontIndex)}`,
   )
   .join("\n")}
 
@@ -94,10 +103,11 @@ ${usedEngineFields
       return "";
     }
     const engineValue = engineFieldValues.find((v) => v.id === engineField.key);
-    const value =
+    const value = roundValue(
       engineValue && engineValue.value !== undefined
         ? engineValue.value
-        : engineField.defaultValue;
+        : engineField.defaultValue,
+    );
     const gbvmSetConstInstruction = gbvmSetConstForCType(engineField.cType);
     return `        ${gbvmSetConstInstruction}      _${engineField.key}, ${value}`;
   })
