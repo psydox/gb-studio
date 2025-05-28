@@ -1274,36 +1274,9 @@ export const replaceScriptSymbols = (
 export const compileGameGlobalsInclude = (
   variableAliasLookup: Record<string, VariableMapData>,
   constants: Constant[],
+  engineConstants: Record<string, number>,
   stateReferences: string[],
 ) => {
-  const stateConstants = {
-    // States
-    PLATFORM_FALL_STATE: 0,
-    PLATFORM_GROUND_STATE: 1,
-    PLATFORM_JUMP_STATE: 2,
-    PLATFORM_DASH_STATE: 3,
-    PLATFORM_LADDER_STATE: 4,
-    PLATFORM_WALL_STATE: 5,
-    PLATFORM_KNOCKBACK_STATE: 6,
-    PLATFORM_BLANK_STATE: 7,
-    // Callbacks
-    PLATFORM_FALL_INIT: 0,
-    PLATFORM_FALL_END: 1,
-    PLATFORM_GROUND_INIT: 2,
-    PLATFORM_GROUND_END: 3,
-    PLATFORM_JUMP_INIT: 4,
-    PLATFORM_JUMP_END: 5,
-    PLATFORM_DASH_INIT: 6,
-    PLATFORM_DASH_END: 7,
-    PLATFORM_LADDER_INIT: 8,
-    PLATFORM_LADDER_END: 9,
-    PLATFORM_WALL_INIT: 10,
-    PLATFORM_WALL_END: 11,
-    PLATFORM_KNOCKBACK_INIT: 12,
-    PLATFORM_KNOCKBACK_END: 13,
-    PLATFORM_BLANK_INIT: 14,
-    PLATFORM_BLANK_END: 15,
-  };
   const variables = Object.values(variableAliasLookup).map(
     (v) => v?.symbol,
   ) as string[];
@@ -1320,7 +1293,7 @@ export const compileGameGlobalsInclude = (
         return `${constant.symbol.toLocaleUpperCase()} = ${constant.value}\n`;
       })
       .join("") +
-    Object.entries(stateConstants)
+    Object.entries(engineConstants)
       .map(([name, value]) => {
         return `${name} = ${value}\n`;
       })
@@ -1336,6 +1309,7 @@ export const compileGameGlobalsInclude = (
 export const compileGameGlobalsHeader = (
   variableAliasLookup: Record<string, VariableMapData>,
   constants: Constant[],
+  engineConstants: Record<string, number>,
   stateReferences: string[],
 ) => {
   return (
@@ -1353,6 +1327,11 @@ export const compileGameGlobalsHeader = (
         return `#define ${constant.symbol.toLocaleUpperCase()} ${
           constant.value
         }\n`;
+      })
+      .join("") +
+    Object.entries(engineConstants)
+      .map(([name, value]) => {
+        return `#define ${name} ${value}\n`;
       })
       .join("") +
     stateReferences

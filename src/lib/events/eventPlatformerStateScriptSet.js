@@ -1,5 +1,9 @@
-const id = "PM_EVENT_PLATPLUS_STATE_SCRIPT";
-const groups = ["Platformer+"];
+const id = "EVENT_SET_PLATFORMER_STATE_SCRIPT";
+const groups = ["EVENT_GROUP_ENGINE_FIELDS"];
+const subGroups = {
+  EVENT_GROUP_ENGINE_FIELDS: "GAMETYPE_PLATFORMER",
+};
+
 const name = "Attach a Script to A Platformer+ State";
 
 const fields = [
@@ -75,7 +79,7 @@ const compile = (input, helpers) => {
   const ScriptRef = _compileSubScript(
     "state",
     input.script,
-    "test_symbol" + input.state
+    "test_symbol" + input.state,
   );
   const callbackLabel = valuesMap[input.state] ?? valuesMap.fallStart;
   const bank = `___bank_${ScriptRef}`;
@@ -93,6 +97,7 @@ module.exports = {
   id,
   name,
   groups,
+  subGroups,
   fields,
   compile,
   allowedBeforeInitFade: true,
