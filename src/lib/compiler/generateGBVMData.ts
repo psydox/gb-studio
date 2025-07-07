@@ -1400,6 +1400,7 @@ export const compileStateDefines = (
   engineFields: EngineFieldSchema[],
   engineFieldValues: EngineFieldValue[],
   usedSceneTypeIds: string[],
+  statesOrder: string[],
 ) => {
   return (
     `#ifndef STATES_DEFINES_H\n#define STATES_DEFINES_H\n\n` +
@@ -1424,6 +1425,15 @@ export const compileStateDefines = (
         if (engineField.type === "checkbox") {
           if (value) {
             return `#define ${String(engineField.key).padEnd(32, " ")}\n`;
+          }
+          return "";
+        }
+        if (engineField.type === "animationstate") {
+          if (value) {
+            const stateIndex = statesOrder.indexOf(String(value));
+            return stateIndex > -1
+              ? `#define ${String(engineField.key).padEnd(32, " ")} ${stateIndex}\n`
+              : "";
           }
           return "";
         }

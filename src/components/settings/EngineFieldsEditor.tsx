@@ -30,6 +30,7 @@ import { FlexRow } from "ui/spacing/Spacing";
 import { useEngineFieldsDefaultValues } from "./useEngineFieldsDefaultValues";
 import ToggleButtons from "ui/form/ToggleButtons";
 import { pxToSubpx, pxToSubpxVelPrecise } from "shared/lib/helpers/subpixels";
+import AnimationStateSelect from "components/forms/AnimationStateSelect";
 
 const { editEngineFieldValue, removeEngineFieldValue } = entitiesActions;
 
@@ -308,8 +309,18 @@ export const EngineFieldInput: FC<EngineFieldInputProps> = ({
       />
     );
   }
+  if (field.type === "animationstate") {
+    return (
+      <AnimationStateSelect
+        name={field.key}
+        value={String(value || "")}
+        onChange={onChange}
+        allowDefault
+      />
+    );
+  }
   if (field.type === "label") {
-    return <></>
+    return <></>;
   }
   return <div>Unknown type {field.type}</div>;
 };
